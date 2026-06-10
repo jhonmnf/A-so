@@ -42,29 +42,62 @@
             border: 1px solid rgba(167, 139, 250, 0.15);
         }
         .glass-nav {
+            background: rgba(10, 10, 26, 0);
+            backdrop-filter: blur(0px);
+            border-bottom: 1px solid rgba(167, 139, 250, 0);
+            transition: all 0.5s ease;
+            opacity: 0;
+        }
+        .glass-nav.visible {
             background: rgba(10, 10, 26, 0.7);
             backdrop-filter: blur(15px);
             border-bottom: 1px solid rgba(167, 139, 250, 0.2);
-            transition: all 0.3s ease;
-        }
-        .text-reveal {
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            max-height: 0;
-            opacity: 0;
-            overflow: hidden;
-        }
-        .text-reveal.active {
-            max-height: 200px;
             opacity: 1;
-            margin-top: 1rem;
+        }
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 100;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(10px);
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            cursor: zoom-out;
+        }
+        .modal.active {
+            display: flex;
+            animation: modalFadeIn 0.3s ease-out;
+        }
+        @keyframes modalFadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .modal-content {
+            max-width: 90%;
+            max-height: 90vh;
+            text-align: center;
+            animation: zoomIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        @keyframes zoomIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        .modal-img {
+            max-height: 70vh;
+            border-radius: 1rem;
+            box-shadow: 0 0 50px rgba(167, 139, 250, 0.3);
+            border: 2px solid rgba(167, 139, 250, 0.2);
         }
     </style>
 </head>
 <body class="text-slate-300 overflow-x-hidden">
 
     <!-- Glass Navigation -->
-    <nav id="main-nav" class="fixed top-0 left-0 right-0 z-50 py-4 px-6 transition-all duration-300 -translate-y-full glass-nav flex justify-center items-center">
-        <span class="font-handwritten text-2xl text-purple-400">to soso ✨</span>
+    <nav id="main-nav" class="fixed top-0 left-0 right-0 z-50 py-4 px-6 transition-all duration-300 glass-nav flex justify-center items-center">
+        <span class="font-handwritten text-2xl text-purple-400">to soso ✨</span
     </nav>
 
     <!-- Hero Section -->
@@ -85,62 +118,44 @@
 
     <!-- Gallery Section -->
     <section id="gallery" class="py-20 px-6 max-w-6xl mx-auto">
-        <h2 class="text-3xl md:text-4xl text-center font-handwritten text-purple-400 mb-16">O que eu vejo em você</h2>
+        <h2 class="text-3 la-xl text-center font-handwritten text-purple-400 mb-16">O que eu vejo em você</h2>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-s3 gap-8">
             <div class="photo-card glass-card p-3 rounded-2xl shadow-xl flex flex-col items-center">
-                <img src="assets/images/foto1.png" class="rounded-xl w-full h-64 object-cover mb-4 cursor-pointer hover:opacity-90 transition-opacity" alt="Sofia" onclick="toggleText(this)">
-                <div class="text-reveal">
-                    <p class="font-handwritten text-xl text-purple-300 text-center px-2">"Passo tempo demais apenas te observando..."</p>
-                </div>
+                <img src="assets/images/foto1.png" class="rounded-xl w-full h-64 object-cover mb-4 cursor-pointer hover:opacity-90 transition-opacity" alt="Sofia" onclick="zoomPhoto(this)">
+                <p class="font-handwritten text-xl text-purple-300 text-center px-2">"Passo tempo demais apenas te observando..."</p>
             </div>
             <div class="photo-card glass-card p-3 rounded-2xl shadow-xl flex flex-col items-center mt-8">
-                <img src="assets/images/foto2.png" class="rounded-xl w-full h-64 object-cover mb-4 cursor-pointer hover:opacity-90 transition-opacity" alt="Sofia" onclick="toggleText(this)">
-                <div class="text-reveal">
-                    <p class="font-handwritten text-xl text-purple-300 text-center px-2">"Admiro cada pequeno gesto seu."</p>
-                </div>
+                <img src="assets/images/foto2.png" class="rounded-xl w-full h-64 object-cover mb-4 cursor-pointer hover:opacity-90 transition-opacity" alt="Sofia" onclick="zoomPhoto(this)">
+                <p class="font-handwritten text-xl text-purple-300 text-center px-2">"Admiro cada pequeno gesto seu."</p>
             </div>
             <div class="photo-card glass-card p-3 rounded-2xl shadow-xl flex flex-col items-center">
-                <img src="assets/images/foto3.png" class="rounded-xl w-full h-64 object-cover mb-4 cursor-pointer hover:opacity-90 transition-opacity" alt="Sofia" onclick="toggleText(this)">
-                <div class="text-reveal">
-                    <p class="font-handwritten text-xl text-purple-300 text-center px-2">"Sinto que a gente se completa, mas ainda falta algo..."</p>
-                </div>
+                <img src="assets/images/foto3.png" class="rounded-xl w-full h-64 object-cover mb-4 cursor-pointer hover:opacity-90 transition-opacity" alt="Sofia" onclick="zoomPhoto(this)">
+                <p class="font-handwritten text-xl text-purple-300 text-center px-2">"Sinto que a gente se completa, mas ainda falta algo..."</p>
             </div>
             <div class="photo-card glass-card p-3 rounded-2xl shadow-xl flex flex-col items-center">
-                <img src="assets/images/foto4.png" class="rounded-xl w-full h-64 object-cover mb-4 cursor-pointer hover:opacity-90 transition-opacity" alt="Sofia" onclick="toggleText(this)">
-                <div class="text-reveal">
-                    <p class="font-handwritten text-xl text-purple-300 text-center px-2">"Me perco completamente no teu olhar."</p>
-                </div>
+                <img src="assets/images/foto4.png" class="rounded-xl w-full h-64 object-cover mb-4 cursor-pointer hover:opacity-90 transition-opacity" alt="Sofia" onclick="zoomPhoto(this)">
+                <p class="font-handwritten text-xl text-purple-300 text-center px-2">"Me perco completamente no teu olhar."</p>
             </div>
             <div class="photo-card glass-card p-3 rounded-2xl shadow-xl flex flex-col items-center mt-8">
-                <img src="assets/images/foto5.png" class="rounded-xl w-full h-64 object-cover mb-4 cursor-pointer hover:opacity-90 transition-opacity" alt="Sofia" onclick="toggleText(this)">
-                <div class="text-reveal">
-                    <p class="font-handwritten text-xl text-purple-300 text-center px-2">"É estranho como eu me estremeço quando você me olha."</p>
-                </div>
+                <img src="assets/images/foto5.png" class="rounded-xl w-full h-64 object-cover mb-4 cursor-pointer hover:opacity-90 transition-opacity" alt="Sofia" onclick="zoomPhoto(this)">
+                <p class="font-handwritten text-xl text-purple-300 text-center px-2">"É estranho como eu me estremeço quando você me olha."</p>
             </div>
             <div class="photo-card glass-card p-3 rounded-2xl shadow-xl flex flex-col items-center">
-                <img src="assets/images/foto6.png" class="rounded-xl w-full h-64 object-cover mb-4 cursor-pointer hover:opacity-90 transition-opacity" alt="Sofia" onclick="toggleText(this)">
-                <div class="text-reveal">
-                    <p class="font-handwritten text-xl text-purple-300 text-center px-2">"Isso acontece 24 horas do meu dia."</p>
-                </div>
+                <img src="assets/images/foto6.png" class="rounded-xl w-full h-64 object-cover mb-4 cursor-pointer hover:opacity-90 transition-opacity" alt="Sofia" onclick="zoomPhoto(this)">
+                <p class="font-handwritten text-xl text-purple-300 text-center px-2">"Isso acontece 24 horas do meu dia."</p>
             </div>
             <div class="photo-card glass-card p-3 rounded-2xl shadow-xl flex flex-col items-center">
-                <img src="assets/images/foto7.png" class="rounded-xl w-full h-64 object-cover mb-4 cursor-pointer hover:opacity-90 transition-opacity" alt="Sofia" onclick="toggleText(this)">
-                <div class="text-reveal">
-                    <p class="font-handwritten text-xl text-purple-300 text-center px-2">"A mais zueira que conheço 😜"</p>
-                </div>
+                <img src="assets/images/foto7.png" class="rounded-xl w-full h-64 object-cover mb-4 cursor-pointer hover:opacity-90 transition-opacity" alt="Sofia" onclick="zoomPhoto(this)">
+                <p class="font-handwritten text-xl text-purple-300 text-center px-2">"A mais zueira que conheço 😜"</p>
             </div>
             <div class="photo-card glass-card p-3 rounded-2xl shadow-xl flex flex-col items-center mt-8">
-                <img src="assets/images/foto8.png" class="rounded-xl w-full h-64 object-cover mb-4 cursor-pointer hover:opacity-90 transition-opacity" alt="Sofia" onclick="toggleText(this)">
-                <div class="text-reveal">
-                    <p class="font-handwritten text-xl text-purple-300 text-center px-2">"Mas o medo de não ser recíproco me cala."</p>
-                </div>
+                <img src="assets/images/foto8.png" class="rounded-xl w-full h-64 object-cover mb-4 cursor-pointer hover:opacity-90 transition-opacity" alt="Sofia" onclick="zoomPhoto(this)">
+                <p class="font-handwritten text-xl text-purple-300 text-center px-2">"Mas o medo de não ser recíproco me cala."</p>
             </div>
             <div class="photo-card glass-card p-3 rounded-2xl shadow-xl flex flex-col items-center">
-                <img src="assets/images/foto9.png" class="rounded-xl w-full h-64 object-cover mb-4 cursor-pointer hover:opacity-90 transition-opacity" alt="Sofia" onclick="toggleText(this)">
-                <div class="text-reveal">
-                    <p class="font-handwritten text-xl text-purple-300 text-center px-2">"E esse sorriso..."</p>
-                </div>
+                <img src="assets/images/foto9.png" class="rounded-xl w-full h-64 object-cover mb-4 cursor-pointer hover:opacity-90 transition-opacity" alt="Sofia" onclick="zoomPhoto(this)">
+                <p class="font-handwritten text-xl text-purple-300 text-center px-2">"E esse sorriso..."</p>
             </div>
         </div>
     </section>
@@ -171,6 +186,14 @@
         <p class="mt-4 text-sm text-slate-500 italic">Um segredo guardado para Sofia ✨</p>
     </footer>
 
+    <!-- Zoom Modal -->
+    <div id="photo-modal" class="modal" onclick="closeModal()">
+        <div class="modal-content">
+            <img id="modal-img" src="" class="modal-img" alt="Sofia Zoom">
+            <p id="modal-text" class="font-handwritten text-2xl text-purple-300 mt-6 px-4"></p>
+        </div>
+    </div>
+
     <script>
         const heartButton = document.getElementById('heart-button');
         heartButton.addEventListener('click', () => {
@@ -184,7 +207,7 @@
             e.preventDefault();
             const target = document.getElementById('gallery');
             if (target) {
-                const offset = 40; // Pequeno recuo para não colar no topo
+                const offset = 40;
                 const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
                 window.scrollTo({
                     top: targetPosition,
@@ -196,19 +219,28 @@
         // Efeito de Glass Nav ao rolar
         window.addEventListener('scroll', () => {
             const nav = document.getElementById('main-nav');
-            if (window.scrollY > 100) {
-                nav.classList.remove('-translate-y-full');
+            if (window.scrollY > 50) {
+                nav.classList.add('visible');
             } else {
-                nav.classList.add('-translate-y-full');
+                nav.classList.remove('visible');
             }
         });
 
-        // Função para revelar texto das fotos
-        function toggleText(imgElement) {
-            const revealDiv = imgElement.nextElementSibling;
-            if (revealDiv && revealDiv.classList.contains('text-reveal')) {
-                revealDiv.classList.toggle('active');
-            }
+        // Função de Zoom da Foto
+        function zoomPhoto(img) {
+            const modal = document.getElementById('photo-modal');
+            const modalImg = document.getElementById('modal-img');
+            const modalText = document.getElementById('modal-text');
+
+            const text = img.nextElementSibling ? img.nextElementSibling.innerText : "";
+
+            modalImg.src = img.src;
+            modalText.innerText = text;
+            modal.classList.add('active');
+        }
+
+        function closeModal() {
+            document.getElementById('photo-modal').classList.remove('active');
         }
 
         function createHeart() {
@@ -216,7 +248,7 @@
             heart.classList.add('heart');
             heart.innerHTML = '❤️';
             heart.style.left = Math.random() * 100 + 'vw';
-            heart.style.animationDuration = (Math.random() * 2 + 3) + 's';
+            heart.styleLanimationDuration = (Math.random() * 2 + 3) + 's';
             heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
             document.body.appendChild(heart);
 

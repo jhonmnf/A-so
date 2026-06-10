@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Para Sofia ✨</title>
+    <title>to soso ✨</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Inter', sans-serif;
             scroll-behavior: smooth;
-            background-color: #fffafb;
+            background-color: #0a0a1a; /* Deepest Purple/Black */
         }
         .font-handwritten {
             font-family: 'Dancing Script', cursive;
@@ -26,89 +26,94 @@
             100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
         }
         .photo-card:hover {
-            transform: scale(1.05) rotate(2deg);
-            transition: all 0.3s ease;
+            transform: scale(1.05) rotate(1deg);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
         .fade-in {
-            animation: fadeIn 1.5s ease-out forwards;
+            animation: fadeIn 2s ease-out forwards;
         }
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
+        .glass-card {
+            background: rgba(20, 10, 40, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(167, 139, 250, 0.15);
+        }
     </style>
 </head>
-<body class="text-gray-700 overflow-x-hidden">
+<body class="text-slate-300 overflow-x-hidden">
 
     <!-- Hero Section -->
     <section class="relative h-screen flex items-center justify-center text-center p-6 overflow-hidden">
         <div class="absolute inset-0 z-0">
-            <div class="absolute inset-0 bg-gradient-to-b from-pink-100/50 to-transparent"></div>
-            <img src="assets/images/Captura de tela 2026-06-09 222730.png" class="w-full h-full object-cover opacity-30 blur-sm" alt="Background">
+            <div class="absolute inset-0 bg-gradient-to-b from-purple-900/40 via-slate-900/90 to-[#0a0a1a]"></div>
+            <img src="assets/images/foto1.png" class="w-full h-full object-cover opacity-20 blur-md" alt="Background">
         </div>
 
         <div class="z-10 fade-in">
-            <h1 class="text-5xl md:text-7xl font-handwritten text-pink-500 mb-4 drop-shadow-sm">Para Sofia ✨</h1>
-            <p class="text-lg md:text-xl text-gray-500 font-light italic mb-8">Existem coisas que as palavras não conseguem dizer, mas o coração guarda...</p>
-            <a href="#gallery" class="bg-pink-400 hover:bg-pink-500 text-white px-8 py-3 rounded-full transition-all duration-300 shadow-lg hover:shadow-pink-200 inline-block font-medium">
-                Descubra o que eu sinto...
+            <h1 class="text-5xl md:text-7xl font-handwritten text-purple-400 mb-4 drop-shadow-lg">to soso ✨</h1>
+            <p class="text-lg md:text-xl text-slate-400 font-light italic mb-8">Algo que eu guardo em silêncio, mas que transborda em cada olhar...</p>
+            <a href="#gallery" class="bg-purple-600 hover:bg-purple-500 text-white px-8 py-3 rounded-full transition-all duration-300 shadow-lg shadow-purple-900/40 inline-block font-medium">
+                Entra aqui...
             </a>
         </div>
     </section>
 
     <!-- Gallery Section -->
     <section id="gallery" class="py-20 px-6 max-w-6xl mx-auto">
-        <h2 class="text-3xl md:text-4xl text-center font-handwritten text-pink-600 mb-16">Observando Você</h2>
+        <h2 class="text-3xl md:text-4xl text-center font-handwritten text-purple-400 mb-16">O que eu vejo em você</h2>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div class="photo-card bg-white p-3 rounded-2xl shadow-sm border border-pink-50 flex flex-col items-center">
-                <img src="assets/images/Captura de tela 2026-06-09 222730.png" class="rounded-xl w-full h-64 object-cover mb-4" alt="Foto Sofia">
-                <p class="font-handwritten text-xl text-pink-400 text-center px-2">"A nerdola mais linda que eu conheço 🤓"</p>
+            <div class="photo-card glass-card p-3 rounded-2xl shadow-xl flex flex-col items-center">
+                <img src="assets/images/foto1.png" class="rounded-xl w-full h-64 object-cover mb-4" alt="Sofia">
+                <p class="font-handwritten text-xl text-purple-300 text-center px-2">"Passo tempo demais apenas te observando..."</p>
             </div>
-            <div class="photo-card bg-white p-3 rounded-2xl shadow-sm border border-pink-50 flex flex-col items-center mt-8">
-                <img src="assets/images/Captura de tela 2026-06-09 223017.png" class="rounded-xl w-full h-64 object-cover mb-4" alt="Foto Sofia">
-                <p class="font-handwritten text-xl text-pink-400 text-center px-2">"Tão fofa que chega a ser impossível não amar 🌸"</p>
+            <div class="photo-card glass-card p-3 rounded-2xl shadow-xl flex flex-col items-center mt-8">
+                <img src="assets/images/foto2.png" class="rounded-xl w-full h-64 object-cover mb-4" alt="Sofia">
+                <p class="font-handwritten text-xl text-purple-300 text-center px-2">"Admiro cada pequeno gesto seu."</p>
             </div>
-            <div class="photo-card bg-white p-3 rounded-2xl shadow-sm border border-pink-50 flex flex-col items-center">
-                <img src="assets/images/Captura de tela 2026-06-09 223027.png" class="rounded-xl w-full h-64 object-cover mb-4" alt="Foto Sofia">
-                <p class="font-handwritten text-xl text-pink-400 text-center px-2">"Seu jeito atencioso aquece meu coração ❤️"</p>
+            <div class="photo-card glass-card p-3 rounded-2xl shadow-xl flex flex-col items-center">
+                <img src="assets/images/foto3.png" class="rounded-xl w-full h-64 object-cover mb-4" alt="Sofia">
+                <p class="font-handwritten text-xl text-purple-300 text-center px-2">"Sinto que a gente se completa, mas ainda falta algo..."</p>
             </div>
-            <div class="photo-card bg-white p-3 rounded-2xl shadow-sm border border-pink-50 flex flex-col items-center">
-                <img src="assets/images/Captura de tela 2026-06-09 223053.png" class="rounded-xl w-full h-64 object-cover mb-4" alt="Foto Sofia">
-                <p class="font-handwritten text-xl text-pink-400 text-center px-2">"Admiro tanto a sua força e o quanto você é esforçada ✨"</p>
+            <div class="photo-card glass-card p-3 rounded-2xl shadow-xl flex flex-col items-center">
+                <img src="assets/images/foto4.png" class="rounded-xl w-full h-64 object-cover mb-4" alt="Sofia">
+                <p class="font-handwritten text-xl text-purple-300 text-center px-2">"Me perco completamente no teu olhar."</p>
             </div>
-            <div class="photo-card bg-white p-3 rounded-2xl shadow-sm border border-pink-50 flex flex-col items-center mt-8">
-                <img src="assets/images/Captura de tela 2026-06-09 223302.png" class="rounded-xl w-full h-64 object-cover mb-4" alt="Foto Sofia">
-                <p class="font-handwritten text-xl text-pink-400 text-center px-2">"Uma delicadeza que encanta tudo ao redor ☁️"</p>
+            <div class="photo-card glass-card p-3 rounded-2xl shadow-xl flex flex-col items-center mt-8">
+                <img src="assets/images/foto5.png" class="rounded-xl w-full h-64 object-cover mb-4" alt="Sofia">
+                <p class="font-handwritten text-xl text-purple-300 text-center px-2">"É estranho como eu me estremeço quando você me olha."</p>
             </div>
-            <div class="photo-card bg-white p-3 rounded-2xl shadow-sm border border-pink-50 flex flex-col items-center">
-                <img src="assets/images/Captura de tela 2026-06-09 223309.png" class="rounded-xl w-full h-64 object-cover mb-4" alt="Foto Sofia">
-                <p class="font-handwritten text-xl text-pink-400 text-center px-2">"Sua gentileza é a coisa mais rara e linda de se ver 🌟"</p>
+            <div class="photo-card glass-card p-3 rounded-2xl shadow-xl flex flex-col items-center">
+                <img src="assets/images/foto6.png" class="rounded-xl w-full h-64 object-cover mb-4" alt="Sofia">
+                <p class="font-handwritten text-xl text-purple-300 text-center px-2">"Isso acontece 24 horas do meu dia."</p>
             </div>
-            <div class="photo-card bg-white p-3 rounded-2xl shadow-sm border border-pink-50 flex flex-col items-center">
-                <img src="assets/images/Captura de tela 2026-06-09 223511.png" class="rounded-xl w-full h-64 object-cover mb-4" alt="Foto Sofia">
-                <p class="font-handwritten text-xl text-pink-400 text-center px-2">"A alma mais justa e iluminada que já conheci ⚖️"</p>
+            <div class="photo-card glass-card p-3 rounded-2xl shadow-xl flex flex-col items-center">
+                <img src="assets/images/foto7.png" class="rounded-xl w-full h-64 object-cover mb-4" alt="Sofia">
+                <p class="font-handwritten text-xl text-purple-300 text-center px-2">"A mais zueira que conheço 😜"</p>
             </div>
-            <div class="photo-card bg-white p-3 rounded-2xl shadow-sm border border-pink-50 flex flex-col items-center mt-8">
-                <img src="assets/images/Captura de tela 2026-06-09 223621.png" class="rounded-xl w-full h-64 object-cover mb-4" alt="Foto Sofia">
-                <p class="font-handwritten text-xl text-pink-400 text-center px-2">"Simplesmente formosa, por dentro e por fora 💖"</p>
+            <div class="photo-card glass-card p-3 rounded-2xl shadow-xl flex flex-col items-center mt-8">
+                <img src="assets/images/foto8.png" class="rounded-xl w-full h-64 object-cover mb-4" alt="Sofia">
+                <p class="font-handwritten text-xl text-purple-300 text-center px-2">"Mas o medo de não ser recíproco me cala."</p>
             </div>
         </div>
     </section>
 
     <!-- Feelings Section -->
-    <section class="py-20 px-6 bg-pink-50 text-center">
+    <section class="py-20 px-6 bg-purple-950/30 text-center">
         <div class="max-w-3xl mx-auto fade-in">
-            <h2 class="text-3xl md:text-4xl font-handwritten text-pink-600 mb-8">Para Sofia...</h2>
-            <div class="bg-white p-8 md:p-12 rounded-3xl shadow-inner border border-pink-100 italic text-lg leading-relaxed text-gray-600 font-light">
+            <h2 class="text-3xl md:text-4xl font-handwritten text-purple-400 mb-8">O que eu não consigo dizer...</h2>
+            <div class="glass-card p-8 md:p-12 rounded-3xl shadow-2xl italic text-lg leading-relaxed text-slate-400 font-light">
                 <p class="mb-6">
-                    Há coisas que as palavras não conseguem descrever, Sofia, e o que eu sinto por você é exatamente assim. Passo horas apenas te observando, admirando cada gesto, cada detalhe do seu jeito de ser. Sinto que, de alguma forma, a gente se completa, embora ainda exista aquela peça faltando, aquele silêncio que espera para ser preenchido.
+                    Não consigo descrever exatamente o que sinto por você, Sofia... Passo tempo e tempo te olhando, apenas observando o que você faz e como faz. Sinto, no fundo, que a gente se completa, mas parece que ainda falta uma parte, um passo que eu não sei como dar.
                 </p>
                 <p class="mb-6">
-                    Mas é no seu olhar que eu me perco completamente. É estranho e fascinante como eu ainda me estremeço cada vez que seus olhos encontram os meus. Esse sentimento me acompanha em cada segundo, em cada hora do meu dia.
+                    E então tem o seu olhar... sem comentários sobre isso. Me sinto perdido quando você me olha, e é estranho como eu ainda me estremeço. Isso acontece 24 horas do meu dia, você não sai da minha cabeça.
                 </p>
                 <p>
-                    Muitas vezes sinto que deveria te dizer tudo, abrir todo esse meu mundo para você. Mas o medo, esse medo bobo e imenso, sussurra que talvez eu pudesse perder os meus dias se as coisas não fossem como eu sonho. Por enquanto, guardo tudo aqui, nesse pequeno refúgio digital, esperando que o destino ou a coragem me levem até você.
+                    Muitas vezes sinto que deveria simplesmente dizer tudo, abrir meu coração e acabar com esse silêncio. Mas tenho medo... medo de que isso acabasse com os meus dias, medo de que, se não for recíproco, eu simplesmente não saberia como lidar. Por isso, guardo tudo aqui, nesse pequeno refúgio digital, esperando que o destino ou a coragem me levem até você.
                 </p>
             </div>
         </div>
@@ -116,10 +121,10 @@
 
     <!-- Footer -->
     <footer class="py-12 text-center">
-        <button id="heart-button" class="bg-white text-pink-500 p-4 rounded-full shadow-md hover:shadow-lg transition-all duration-300 animate-bounce cursor-pointer">
+        <button id="heart-button" class="bg-slate-900 text-purple-500 p-4 rounded-full shadow-md hover:shadow-purple-500/20 transition-all duration-300 animate-bounce cursor-pointer">
             <span class="text-2xl">❤️</span>
         </button>
-        <p class="mt-4 text-sm text-gray-400 italic">Feito com todo carinho para você ✨</p>
+        <p class="mt-4 text-sm text-slate-500 italic">Um segredo guardado para Sofia ✨</p>
     </footer>
 
     <script>
